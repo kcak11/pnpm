@@ -69,7 +69,7 @@
     "@types/tape-promise": "^4.0.1",
     "@types/update-notifier": "^5.0.0",
     "@types/which": "^1.3.2",
-    "@zkochan/libnpx": "11.0.3",
+    "@zkochan/libnpx": "12.0.0",
     "@zkochan/retry": "^0.2.0",
     "@zkochan/rimraf": "^1.0.0",
     "anonymous-npm-registry-client": "0.1.2",

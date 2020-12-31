@@ -68,6 +68,7 @@ export interface StrictInstallOptions {
   virtualStoreDir?: string
   dir: string
   symlink: boolean
+  writeModulesDir: boolean
 
   hoistPattern: string[] | undefined
   forceHoistPattern: boolean
@@ -142,6 +143,7 @@ const defaults = async (opts: InstallOptions) => {
     userAgent: `${packageManager.name}/${packageManager.version} npm/? node/${process.version} ${process.platform} ${process.arch}`,
     verifyStoreIntegrity: true,
     workspacePackages: {},
+    writeModulesDir: true,
   } as StrictInstallOptions
 }
 

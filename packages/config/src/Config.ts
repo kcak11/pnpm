@@ -117,6 +117,7 @@ export interface Config {
   recursiveInstall?: boolean
   symlink: boolean
   enablePnp?: boolean
+  writeModulesDir: boolean
 
   registries: Registries
   ignoreWorkspaceRootCheck: boolean

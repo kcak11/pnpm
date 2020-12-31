@@ -721,3 +721,16 @@ test('installing with no symlinks but with PnP', async () => {
   expect(await project.readModulesManifest()).toBeTruthy()
   expect(await exists(path.join(prefix, '.pnp.js'))).toBeTruthy()
 })
+
+test('installing with no modules directory', async () => {
+  const prefix = path.join(fixtures, 'simple')
+  await rimraf(path.join(prefix, 'node_modules'))
+  await rimraf(path.join(prefix, '.pnp.js'))
+
+  await headless(await testDefaults({
+    lockfileDir: prefix,
+    writeModulesDir: false,
+  }))
+
+  expect(await exists(path.join(prefix, 'node_modules'))).toBeFalsy()
+})

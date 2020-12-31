@@ -91,6 +91,7 @@ export const types = Object.assign({
   'workspace-concurrency': Number,
   'workspace-packages': [String, Array],
   'workspace-root': Boolean,
+  'write-modules-dir': Boolean,
   'test-pattern': [String, Array],
 }, npmTypes.types)
 
@@ -181,6 +182,7 @@ export default async (
     'virtual-store-dir': 'node_modules/.pnpm',
     'workspace-concurrency': 4,
     'workspace-prefix': opts.workspaceDir,
+    'write-modules-dir': true,
   })
   delete cliOptions.prefix
 

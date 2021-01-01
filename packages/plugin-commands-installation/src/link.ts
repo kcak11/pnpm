@@ -21,6 +21,7 @@ import {
 } from 'supi'
 import getSaveType from './getSaveType'
 import * as installCommand from './install'
+import fs = require('mz/fs')
 import path = require('path')
 import pLimit = require('p-limit')
 import pathAbsolute = require('path-absolute')
@@ -136,7 +137,9 @@ export async function handler (
       globalPkgNames = pkgNames
     }
     const globalPkgPath = pathAbsolute(opts.globalDir!)
-    globalPkgNames.forEach((pkgName) => pkgPaths.push(path.join(globalPkgPath, 'node_modules', pkgName)))
+    await Promise.all(
+      globalPkgNames.map(async (pkgName) => pkgPaths.push(await fs.realpath(path.join(globalPkgPath, 'node_modules', pkgName))))
+    )
   }
 
   await Promise.all(
